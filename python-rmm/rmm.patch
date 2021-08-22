@@ -1,0 +1,63 @@
+*** rmm/python/setup.py-dist	2021-08-04 22:42:38.311957831 +0900
+--- rmm/python/setup.py	2021-08-04 22:45:20.077355837 +0900
+***************
+*** 129,135 ****
+                  cuda_lib_dir,
+                  os.path.join(os.sys.prefix, "lib"),
+              ],
+!             libraries=["cuda", "cudart"],
+              language="c++",
+              extra_compile_args=["-std=c++17"],
+          )
+--- 129,135 ----
+                  cuda_lib_dir,
+                  os.path.join(os.sys.prefix, "lib"),
+              ],
+!             libraries=["cuda", "cudart", "spdlog", "fmt"],
+              language="c++",
+              extra_compile_args=["-std=c++17"],
+          )
+***************
+*** 153,159 ****
+                  cuda_lib_dir,
+                  os.path.join(os.sys.prefix, "lib"),
+              ],
+!             libraries=["cuda", "cudart"],
+              language="c++",
+              extra_compile_args=["-std=c++14"],
+          )
+--- 153,159 ----
+                  cuda_lib_dir,
+                  os.path.join(os.sys.prefix, "lib"),
+              ],
+!             libraries=["cuda", "cudart", "spdlog", "fmt"],
+              language="c++",
+              extra_compile_args=["-std=c++14"],
+          )
+***************
+*** 176,182 ****
+                  cuda_lib_dir,
+                  os.path.join(os.sys.prefix, "lib"),
+              ],
+!             libraries=["cuda", "cudart"],
+              language="c++",
+              extra_compile_args=["-std=c++14"],
+          )
+--- 176,182 ----
+                  cuda_lib_dir,
+                  os.path.join(os.sys.prefix, "lib"),
+              ],
+!             libraries=["cuda", "cudart", "spdlog", "fmt"],
+              language="c++",
+              extra_compile_args=["-std=c++14"],
+          )
+***************
+*** 202,207 ****
+--- 202,208 ----
+          "Programming Language :: Python",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
++         "Programming Language :: Python :: 3.9",
+      ],
+      # Include the separately-compiled shared library
+      setup_requires=["Cython>=0.29,<0.30"],

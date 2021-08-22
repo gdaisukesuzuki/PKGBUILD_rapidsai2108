@@ -1,0 +1,38 @@
+*** cupy/cupy_setup_build.py-dist	2021-08-22 00:36:48.511760088 +0900
+--- cupy/cupy_setup_build.py	2021-08-22 00:37:45.606188054 +0900
+***************
+*** 315,321 ****
+              'cupy_backends.cuda.libs.cugraph',
+          ],
+          'include': [
+!             'cugraph/raft/error.hpp',  # dummy
+          ],
+          'libraries': [
+              'cugraph',
+--- 315,321 ----
+              'cupy_backends.cuda.libs.cugraph',
+          ],
+          'include': [
+!             'raft/error.hpp',  # dummy
+          ],
+          'libraries': [
+              'cugraph',
+*** cupy/install/build.py-dist	2021-08-22 00:36:38.708237961 +0900
+--- cupy/install/build.py	2021-08-22 00:37:28.295857032 +0900
+***************
+*** 755,761 ****
+      try:
+          build_and_run(compiler, '''
+          #include <stdio.h>
+!         #include <cugraph/raft/error.hpp>
+          int main(int argc, char* argv[]) {
+            return 0;
+          }
+--- 755,761 ----
+      try:
+          build_and_run(compiler, '''
+          #include <stdio.h>
+!         #include <raft/error.hpp>
+          int main(int argc, char* argv[]) {
+            return 0;
+          }

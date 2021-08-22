@@ -1,0 +1,19 @@
+*** cudf/cpp/cmake/thirdparty/CUDF_GetArrow.cmake-dist	2021-08-20 01:35:58.876264962 +0900
+--- cudf/cpp/cmake/thirdparty/CUDF_GetArrow.cmake	2021-08-20 01:36:30.416835886 +0900
+***************
+*** 177,183 ****
+  
+  endfunction()
+  
+! set(CUDF_VERSION_Arrow 4.0.1)
+  
+  find_and_configure_arrow(
+      ${CUDF_VERSION_Arrow}
+--- 177,183 ----
+  
+  endfunction()
+  
+! set(CUDF_VERSION_Arrow 5.0.0)
+  
+  find_and_configure_arrow(
+      ${CUDF_VERSION_Arrow}

@@ -1,0 +1,35 @@
+# Maintainer: Sven-Hendrik Haase <svenstaro@gmail.com>
+# Contributor: bartus <arch-user-repoᘓbartus.33mail.com>
+# Contributor: pingplug <pingplug@foxmail.com>
+# Contributor: cornholio <vigo.the.unholy.carpathian@gmail.com>
+
+pkgname=(python-dask-ml)
+_pkgname=dask-ml
+pkgver=1.9.0
+pkgrel=1
+pkgdesc="RAPIDS Memory Manager"
+arch=('x86_64')
+url="https://rapids.ai/"
+license=('custom')
+
+depends=('python-pandas' 'python-dask' 'python-distributed' 'python-scipy' 'python-numpy' 'python-numba' 'python-dask-glm' 'python-multipledispatch' 'python-packaging' 'python-scikit-learn')
+source=("${_pkgname}::git+https://github.com/dask/dask-ml.git#tag=v${pkgver}")
+# source=("${_pkgname}::git+https://github.com/dask/dask-glm.git#tag=v${_pkgver}")
+
+
+sha256sums=('SKIP')
+
+
+build() {
+
+  cd "${_pkgname}"
+}
+
+package() {
+  cd "${_pkgname}"
+
+  python setup.py install --prefix=/usr --root="${pkgdir}" --optimize=1
+  install -Dm644 LICENSE.txt -t "$pkgdir"/usr/share/licenses/$pkgname
+}
+
+# vim:set ts=2 sw=2 et:

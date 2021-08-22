@@ -1,0 +1,81 @@
+*** cudf/cpp/src/io/utilities/trie.cuh-dist	2021-06-23 23:07:43.846637246 +0900
+--- cudf/cpp/src/io/utilities/trie.cuh	2021-06-23 23:08:07.004187649 +0900
+***************
+*** 21,26 ****
+--- 21,27 ----
+  
+  #pragma once
+  
++ #include <optional>
+  #include <cudf/utilities/span.hpp>
+  
+  namespace cudf {
+*** cudf/cpp/src/io/json/reader_impl.cu-dist	2021-07-07 01:43:15.859832198 +0900
+--- cudf/cpp/src/io/json/reader_impl.cu	2021-07-07 01:46:16.898618979 +0900
+***************
+*** 466,472 ****
+  
+      auto split_on_colon = [](std::string_view s) {
+        auto const i = s.find(":");
+!       return std::pair{s.substr(0, i), s.substr(i + 1)};
+      };
+  
+      if (is_dict) {
+--- 466,472 ----
+  
+      auto split_on_colon = [](std::string_view s) {
+        auto const i = s.find(":");
+!       return std::make_pair(s.substr(0, i), s.substr(i + 1));
+      };
+  
+      if (is_dict) {
+*** cudf/cpp/include/cudf/strings/repeat_strings.hpp-dist	2021-08-17 23:21:03.169854403 +0900
+--- cudf/cpp/include/cudf/strings/repeat_strings.hpp	2021-08-17 23:21:17.910151081 +0900
+***************
+*** 15,20 ****
+--- 15,22 ----
+   */
+  #pragma once
+  
++ #include <optional>
++ 
+  #include <cudf/scalar/scalar.hpp>
+  #include <cudf/strings/strings_column_view.hpp>
+  
+*** cudf/cpp/src/io/utilities/file_io_utilities.hpp-dist	2021-08-17 23:52:07.524876678 +0900
+--- cudf/cpp/src/io/utilities/file_io_utilities.hpp	2021-08-17 23:52:43.828867125 +0900
+***************
+*** 19,28 ****
+--- 19,31 ----
+  #ifdef CUFILE_FOUND
+  #include "thread_pool.hpp"
+  
++ 
+  #include <cufile.h>
+  #include <cudf_test/file_utilities.hpp>
+  #endif
+  
++ #include <future>
++ 
+  #include <rmm/cuda_stream_view.hpp>
+  
+  #include <cudf/io/datasource.hpp>
+*** cudf/cpp/src/io/orc/reader_impl.cu-dist	2021-08-20 01:53:01.322613279 +0900
+--- cudf/cpp/src/io/orc/reader_impl.cu	2021-08-20 01:53:37.349996673 +0900
+***************
+*** 390,396 ****
+  
+          // Coalesce stripe info at the source file later since that makes downstream processing much
+          // easier in impl::read
+!         for (const size_t& stripe_idx : user_specified_stripes[src_file_idx]) {
+            CUDF_EXPECTS(stripe_idx < per_file_metadata[src_file_idx].ff.stripes.size(),
+                         "Invalid stripe index");
+            stripe_infos.push_back(
+--- 390,396 ----
+  
+          // Coalesce stripe info at the source file later since that makes downstream processing much
+          // easier in impl::read
+!         for (long unsigned int stripe_idx : user_specified_stripes[src_file_idx]) {
+            CUDF_EXPECTS(stripe_idx < per_file_metadata[src_file_idx].ff.stripes.size(),
+                         "Invalid stripe index");
+            stripe_infos.push_back(
