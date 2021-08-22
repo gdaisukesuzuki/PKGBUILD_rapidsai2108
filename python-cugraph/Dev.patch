@@ -1,0 +1,18 @@
+*** _deps/cuhornet-src/xlib/include/Device/Util/impl/DeviceProperties.i.cuh-dist	2021-05-23 00:20:07.320550467 +0900
+--- _deps/cuhornet-src/xlib/include/Device/Util/impl/DeviceProperties.i.cuh	2021-05-23 00:39:06.374384501 +0900
+***************
+*** 153,158 ****
+--- 153,165 ----
+    static const unsigned THREADS_PER_SM = 2048;
+  };
+  
++ template <> struct DeviceProp<860> {
++   static const unsigned SMEM_PER_SM = 102400;
++   static const unsigned RBLOCKS_PER_SM = 16;
++   static const unsigned arch = 860;
++   static const unsigned THREADS_PER_SM = 1536;
++ };
++ 
+  //==============================================================================
+  
+  template <unsigned BLOCK_SIZE>
