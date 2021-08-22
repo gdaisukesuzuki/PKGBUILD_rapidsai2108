@@ -20,9 +20,15 @@ a  procedure of building NVIDIA's [RAPIDS](https://rapids.ai/) under Arch Linux 
 
 Operation is not necessarily guaranteed. The author are not responsible for any damage of your environment by any of the operations described here.
 
-* 
+
 
 ## App build dependencies
 
-<img width="1145" alt=" 2021-08-22 15 29 14" src="https://user-images.githubusercontent.com/22126980/130344910-da24b7cb-c589-45b0-8737-a51d88f5eae0.png">
+<img width="1144" alt=" 2021-08-22 17 25 37" src="https://user-images.githubusercontent.com/22126980/130347818-84259093-2b01-4a76-87f8-977dd804d549.png">
+
+
+## Disclaimer
+
+Operation is not necessarily guaranteed. The author are not responsible for any damage of your environment by any of the operations described here.
+
 
