@@ -24,7 +24,7 @@ Operation is not necessarily guaranteed. The author are not responsible for any 
 
 ## App build dependencies
 
-<img width="1144" alt=" 2021-08-22 17 25 37" src="https://user-images.githubusercontent.com/22126980/130347818-84259093-2b01-4a76-87f8-977dd804d549.png">
+![image](https://user-images.githubusercontent.com/22126980/130356735-4d413009-9395-41af-be87-bf36665439aa.png)
 
 
 ## Disclaimer
