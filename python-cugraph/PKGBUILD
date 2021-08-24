@@ -15,7 +15,7 @@ arch=('x86_64')
 url="https://rapids.ai/"
 license=('custom')
 #depends=('rapids-cudf'  'cuda' 'cmake' 'python' 'cython' 'libcypher-parser'  )
-depends=( 'cuda' 'cugraph' 'python' 'cython' 'python-faiss' 'python-cudf'  'python-ucx' )
+depends=( 'cuda' 'cugraph' 'python' 'cython' 'python-numpy' 'python-cudf'  )
 # depends=('clang' 'rapids-cudf' 'gcc8' 'cuda' 'cmake' 'nccl' 'python' 'cython' 'libcypher-parser-static')
 # depends=('clang' 'rapids-cudf' 'gcc8' 'cuda' 'cmake' 'nccl' 'python' 'cython' 'libcypher-parser-static' 'hortnet')
 # depends=('clang' 'rapids-cudf' 'gcc8' 'cuda' 'cmake' 'nccl' 'python' 'cython' 'libcypher-parser-static' 'gunrock-static')
@@ -65,9 +65,9 @@ export GPU_ARCH=""
 
 
 
-  export CUDAHOSTCXX=/usr/bin/g++-10
- export CC=/usr/bin/gcc-10
- export CXX=/usr/bin/g++-10
+  export CUDAHOSTCXX=/usr/bin/g++
+ export CC=/usr/bin/gcc
+ export CXX=/usr/bin/g++
 
   export CUDA_HOME=/opt/cuda
   export CUDA_BIN_PATH=$CUDA_HOME/bin
@@ -78,10 +78,10 @@ export GPU_ARCH=""
     cd ${LIBCUGRAPH_BUILD_DIR}
     cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} \
           -DCMAKE_CUDA_ARCHITECTURES=86 \
-          -DCMAKE_CUDA_HOST_COMPILER=/usr/bin/g++-10 \
+          -DCMAKE_CUDA_HOST_COMPILER=/usr/bin/g++ \
           -DBUILD_TESTS=OFF \
-          -DCMAKE_C_COMPILER=/usr/bin/gcc-10 \
-          -DCMAKE_CXX_COMPILER=/usr/bin/g++-10 \
+          -DCMAKE_C_COMPILER=/usr/bin/gcc \
+          -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
           -DDISABLE_DEPRECATION_WARNING=${BUILD_DISABLE_DEPRECATION_WARNING} \
           -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
           -DBUILD_STATIC_FAISS=${BUILD_STATIC_FAISS} \
@@ -95,8 +95,8 @@ export GPU_ARCH=""
         # find . -name 'link.txt' | xargs sed -i -e 's/-lpthread/-lpthread -lfmt -lspdlog/g'
         # find . -name 'link.txt' | xargs sed -i -e 's/-lpthread/-lpthread -lcudf -lfmt -lspdlog/g'
         # find . -name 'link.txt' | xargs sed -i -e 's/-lpthread/-lpthread -lgtest -lgmock -lgtest_main -lcudf -lfmt -lspdlog/g'
-export CC=/usr/bin/gcc-10 
-export CXX=/usr/bin/g++-10 
+export CC=/usr/bin/gcc 
+export CXX=/usr/bin/g++ 
         # make -j$(($(nproc)-2)) VERBOSE=1
         # cmake --build "${LIBCUGRAPH_BUILD_DIR}" -j$(($(nproc)-2)) --target 
 
