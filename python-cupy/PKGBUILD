@@ -2,9 +2,9 @@
 pkgname=python-cupy
 _pkgname=cupy
 pkgver=10.0
-_pkgver=10.0.0b1
+_pkgver=10.0.0b2
 # _cubver=1.12.1
-pkgrel=3
+pkgrel=4
 pkgdesc="NumPy-like API accelerated with CUDA"
 _github="cupy/cupy"
 url="https://cupy.dev"
@@ -24,7 +24,7 @@ md5sums=('SKIP'
 
 prepare() {
   # patch -p0 < CubCudaConfig.cmake.patch
-  # patch -p0 < python.patch
+  patch -p0 < python.patch
   # patch -p0 < cupy_cugraph.h.patch
   cd "$srcdir/$_pkgname"
   #ln -srf "$srcdir/cub-$_cubver" cupy/_core/include/cupy/cub
