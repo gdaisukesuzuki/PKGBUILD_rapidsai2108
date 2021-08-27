@@ -9,7 +9,7 @@ _pkgname=cugraph
 # _pkgname2=hornet
 pkgver=21.08
 _pkgver=21.08.03
-pkgrel=2
+pkgrel=3
 pkgdesc="RAPIDS ML"
 arch=('x86_64')
 url="https://rapids.ai/"
@@ -112,7 +112,8 @@ package_cugraph() {
 
   # make DESTDIR="${pkgdir}"/usr install
   install -Dm644 ${srcdir}/cugraph/LICENSE ${pkgdir}/usr/share/licenses/cugraph/LICENSE
-  cd "${pkgdir}/usr/include"
+  cd "${pkgdir}/usr/include/cugraph"
+  ln -fs /usr/include/raft raft
 # mv cugraph/version_config.hpp cugraph/cugraph/
 # mv cugraph cugraph-old
 # mv cugraph-old/cugraph .
